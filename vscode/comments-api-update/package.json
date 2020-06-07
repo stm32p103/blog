@@ -10,16 +10,75 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:comments-api-update.helloWorld"
+		"onCommand:create.commentThread"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "comments-api-update.helloWorld",
-				"title": "Hello World"
+				"command": "create.commentThread",
+				"title": "Create Comment Thread",
+				"category": "Sample"
+			},
+			{
+				"command": "remove.commentThread",
+				"title": "Remove",
+				"category": "Sample"
+			},
+			{
+				"command": "reply.commentThread",
+				"title": "Reply",
+				"category": "Sample"
+			},
+			{
+				"command": "start.edit.comment",
+				"title": "Edit",
+				"category": "Sample"
+			},
+			{
+				"command": "apply.edit.comment",
+				"title": "Apply",
+				"category": "Sample"
+			},
+			{
+				"command": "cancel.edit.comment",
+				"title": "Cancel",
+				"category": "Sample"
+			},
+			{
+				"command": "remove.comment",
+				"title": "Remove",
+				"category": "Sample"
 			}
-		]
+		],
+		"menus": {
+			"comments/commentThread/context": [
+				{
+					"command": "reply.commentThread"
+				}
+			],
+			"comments/commentThread/title": [
+				{
+					"command": "remove.commentThread"
+				}
+			],
+			"comments/comment/title": [
+				{
+					"command": "start.edit.comment"
+				},
+				{
+					"command": "remove.comment"
+				}
+			],
+			"comments/comment/context": [
+				{
+					"command": "apply.edit.comment"
+				},
+				{
+					"command": "cancel.edit.comment"
+				}
+			]
+		}
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
